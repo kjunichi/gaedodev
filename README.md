@@ -15,7 +15,8 @@ docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker
 
 表示されたメッセージに従いsambaのボリュームをローカルでマウントする
 
-マウントしたフォルダにAtom.ioなどの好きなエディタで開発をする
+マウントしたフォルダにmyappというフォルダを作り、
+ファイルを用意してAtom.ioなどの好きなエディタで開発をする
 
 ## ローカル（コンテナ内）での実行方法
 
