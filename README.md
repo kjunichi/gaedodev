@@ -46,6 +46,8 @@ ssh root@192.168.59.103 -p 1022
 /usr/local/go_appeinge serve --host 0.0.0.0 work/myapp/
 ```
 
+注: --host 0.0.0.0を付けないと、コンテナ外からアクセスできない
+
 OSXはboot2docker ipで表示されたIPアドレス:18080、他はlocalhost:18080を
 ホスト側（dockerコマンドを実行している側）のブラウザで開く
 
