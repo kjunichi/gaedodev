@@ -37,5 +37,21 @@ RUN sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config
 ENV ROOTPASSWORD golang123
 RUN echo "root:${ROOTPASSWORD}" |chpasswd
 
+RUN echo "export GOPATH=/go" >>/root/.bashrc
+RUN echo "export GOROOT=/usr/local/go" >>/root/.bashrc
+RUN echo "export PATH=/usr/local/go_appengine:$GOPATH/bin:$PATH" >>/root/.bashrc
+
+#node.js for HTML5
+RUN wget git.io/nodebrew
+RUN sudo -uroot chown root nodebrew
+RUN sudo -uroot perl nodebrew setup
+ENV PATH $HOME/.nodebrew/current/bin:$PATH
+RUN echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >>/root/.bashrc
+RUN nodebrew install-binary stable
+RUN nodebrew use latest
+RUN npm install -g gulp
+RUN npm install -g bower
+RUN npm install -g browserify
+
 CMD /usr/sbin/sshd -D
 EXPOSE 22
