@@ -15,7 +15,8 @@ docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker
 
 表示されたメッセージに従いsambaのボリュームをローカルでマウントする
 
-マウントしたフォルダにAtom.ioなどの好きなエディタで開発をする
+マウントしたフォルダにmyappというフォルダを作り、
+ファイルを用意してAtom.ioなどの好きなエディタで開発をする
 
 ## ローカル（コンテナ内）での実行方法
 
@@ -44,6 +45,8 @@ ssh root@192.168.59.103 -p 1022
 ```bash
 /usr/local/go_appeinge serve --host 0.0.0.0 work/myapp/
 ```
+
+注: --host 0.0.0.0を付けないと、コンテナ外からアクセスできない
 
 OSXはboot2docker ipで表示されたIPアドレス:18080、他はlocalhost:18080を
 ホスト側（dockerコマンドを実行している側）のブラウザで開く
